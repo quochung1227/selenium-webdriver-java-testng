@@ -24,7 +24,7 @@ public class Topic_03_selenium_webdriver {
 	public void f() {
 		// Verify title
 		String homePageTitle = driver.getTitle();
-		Assert.assertEquals(homePageTitle, "Zing - Thông tin uy tín, hình ảnh ấn tượng - ZINGNEWS.VN");
+		Assert.assertEquals(homePageTitle, "Zing -  tin uy tín, hình ảnh ấn tượng - ZINGNEWS.VN");
 	}
 
 	@AfterClass
