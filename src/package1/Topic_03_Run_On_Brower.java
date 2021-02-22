@@ -9,7 +9,7 @@ public class Topic_03_Run_On_Brower {
 	WebDriver driver;
 	String projectLocation = System.getProperty("user.dir");
 
-	// @Test
+	@Test
 	public void TC_01_Run_On_Firefox() {
 		// Firefox 47 + Selenium 2.xx + No geckodriver
 		driver = new FirefoxDriver();
@@ -29,11 +29,13 @@ public class Topic_03_Run_On_Brower {
 	@Test
 	public void TC_02_Run_On_Chrome() {
 		// 01- Only 1 computer
-//		System.setProperty("webdriver.chrome.driver",
-//				"D:\\Automation test\\02-Selenium API\\Topic_01_Check_Environment\\browserDrivers\\chromedriver.exe");
+		// System.setProperty("webdriver.chrome.driver",
+		// "C:\\Users\\Admin\\git\\selenium-webdriver-java-testng\\BrowserDrivers\\chromedriver.exe");
 		// 02-All Computer
-		System.setProperty("webdriver.chrome.driver", projectLocation + "\\browserDrivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",".\\BrowserDrivers\\chromedriver.exe");
 		// .= Dai dien cho project location
+		// 03- All computers
+		//System.setProperty("webdriver.chrome.driver", projectLocation + "\\BrowerDrivers\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("https://google.com");
 		driver.quit();
