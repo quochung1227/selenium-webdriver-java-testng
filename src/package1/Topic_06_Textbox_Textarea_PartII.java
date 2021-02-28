@@ -41,7 +41,7 @@ public class Topic_06_Textbox_Textarea_PartII {
 		state = "Califonia";
 		pin = "999666";
 		phone = "0985692999";
-		email = "mis.luv11@gmail.com";
+		email = "automationFCg234109C@gmail.com";
 
 		editAddress = "Thanh tri Ha Noi";
 		editCity = "Viet Nam";
@@ -83,13 +83,16 @@ public class Topic_06_Textbox_Textarea_PartII {
 		driver.findElement(stateTextboxBy).sendKeys(state);
 		driver.findElement(pinTextboxBy).sendKeys(pin);
 		driver.findElement(phoneTextboxBy).sendKeys(phone);
-		driver.findElement(emailTextboxBy).sendKeys(name);
+		driver.findElement(emailTextboxBy).sendKeys(email);
 		driver.findElement(passwordTextboxBy).sendKeys(password);
 		Thread.sleep(5000);
 		driver.findElement(By.name("sub")).click();
+		
+		Thread.sleep(5000);
+		
 		// Server process +response(Output)
 		Assert.assertTrue(
-				driver.findElement(By.xpath("//p[text()='Customer Registerd Sucessfully!!!']")).isDisplayed());
+				driver.findElement(By.xpath("//p[text()='Customer Registered Successfully!!!']")).isDisplayed());
 
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//td[text()='Customer Name']/following-sibling::td")).getText(), name);
@@ -105,7 +108,8 @@ public class Topic_06_Textbox_Textarea_PartII {
 				phone);
 		Assert.assertEquals(driver.findElement(By.xpath("//td[text()='Email']/following-sibling::td")).getText(),
 				email);
-		customerID = driver.findElement(By.xpath("//td[text()='Customer ID']/folowing-sibling::td")).getText();
+		customerID = driver.findElement(By.xpath("//td[text()='Customer ID']/following-sibling::td")).getText();
+		
 	}
 
 	@Test
@@ -127,7 +131,13 @@ public class Topic_06_Textbox_Textarea_PartII {
 		Assert.assertEquals(driver.findElement(pinTextboxBy).getAttribute("value"), pin);
 		Assert.assertEquals(driver.findElement(phoneTextboxBy).getAttribute("value"), phone);
 		Assert.assertEquals(driver.findElement(emailTextboxBy).getAttribute("value"), email);
-
+		//clear edit customer
+		driver.findElement(addressTextAreaBy).clear();
+		driver.findElement(cityTextboxBy).clear();
+		driver.findElement(stateTextboxBy).clear();
+		driver.findElement(pinTextboxBy).clear();
+		driver.findElement(phoneTextboxBy).clear();
+		driver.findElement(emailTextboxBy).clear();
 		// Edit customer
 		driver.findElement(addressTextAreaBy).sendKeys(editAddress);
 		driver.findElement(cityTextboxBy).sendKeys(editCity);
@@ -136,10 +146,10 @@ public class Topic_06_Textbox_Textarea_PartII {
 		driver.findElement(phoneTextboxBy).sendKeys(editPhone);
 		driver.findElement(emailTextboxBy).sendKeys(editEmail);
 		Thread.sleep(5000);
-
+		driver.findElement(By.name("sub")).click();
 		// Server process +response(Output)
 		Assert.assertTrue(
-				driver.findElement(By.xpath("//p[text()='Customer Registerd Sucessfully!!!']")).isDisplayed());
+				driver.findElement(By.xpath("//p[text()='Customer details updated Successfully!!!']")).isDisplayed());
 		Assert.assertEquals(
 				driver.findElement(By.xpath("//td[text()='Customer Name']/following-sibling::td")).getText(), name);
 		Assert.assertEquals(driver.findElement(By.xpath("//td[text()='Birthdate']/following-sibling::td")).getText(),
@@ -154,7 +164,7 @@ public class Topic_06_Textbox_Textarea_PartII {
 				editPhone);
 		Assert.assertEquals(driver.findElement(By.xpath("//td[text()='Email']/following-sibling::td")).getText(),
 				editEmail);
-		customerID = driver.findElement(By.xpath("//td[text()='Customer ID']/folowing-sibling::td")).getText();
+		
 		Thread.sleep(5000);
 	}
 
